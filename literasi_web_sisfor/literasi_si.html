@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Literasi Sistem Informasi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in { animation: fadeIn 400ms ease both; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px);} to { opacity:1; transform: translateY(0);} }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-slate-50 to-white text-slate-800 leading-relaxed">
+
+  <header class="sticky top-0 bg-white/60 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gradient-to-r from-indigo-500 to-sky-400 rounded-lg flex items-center justify-center text-white font-bold">SI</div>
+        <div>
+          <h1 class="text-lg font-semibold">Literasi Sistem Informasi</h1>
+          <p class="text-xs text-slate-500">Interaktif • Mobile-friendly • Edukasi Keamanan</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-4 text-sm">
+        <a href="#modul" class="px-3 py-2 rounded-md hover:bg-slate-100">Modul</a>
+        <a href="#simulasi" class="px-3 py-2 rounded-md hover:bg-slate-100">Simulasi</a>
+        <a href="#password" class="px-3 py-2 rounded-md hover:bg-slate-100">Password</a>
+        <a href="#quiz" class="px-3 py-2 rounded-md hover:bg-slate-100">Quiz</a>
+      </nav>
+
+      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-indigo-600 to-sky-500 text-white rounded-2xl p-8 shadow-lg mb-8">
+      <div class="md:flex md:items-center md:justify-between gap-6">
+        <div class="md:w-2/3">
+          <h2 class="text-2xl md:text-3xl font-extrabold">Belajar Sistem Informasi & Keamanan Digital</h2>
+          <p class="mt-2 text-slate-100/90">Interaktif, praktis, dan aman — dirancang untuk siswa dan pemula yang ingin menguasai literasi TI.</p>
+          <div class="mt-4 flex gap-3">
+            <a href="#modul" class="px-4 py-2 bg-white text-indigo-700 rounded-lg font-semibold shadow hover:scale-105 transition">Mulai Modul</a>
+            <a href="#quiz" class="px-4 py-2 border border-white/30 text-white rounded-lg hover:bg-white/10 transition">Tes Pengetahuan</a>
+          </div>
+        </div>
+        <div class="md:w-1/3 mt-6 md:mt-0">
+          <div class="bg-white/10 p-4 rounded-xl shadow-inner">
+            <p class="text-sm">Progress Anda</p>
+            <div class="w-full bg-white/20 rounded-full h-3 mt-3 overflow-hidden">
+              <div id="progressBar" class="h-3 bg-white rounded-full" style="width:12%"></div>
+            </div>
+            <p class="text-xs mt-2">Belum banyak progress — selesaikan modul untuk naik level.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modul Pembelajaran (DIPERBANYAK) -->
+    <section id="modul" class="mb-8">
+      <h3 class="text-xl font-bold mb-3">📚 Modul Pembelajaran Lengkap (10 Modul)</h3>
+      <p class="text-sm text-slate-600 mb-4">Klik masing‑masing kartu untuk membuka materi lengkap. Setiap modul berisi penjelasan, contoh, dan latihan singkat.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- New list of modules (10) -->
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-intro">
+          <h4 class="font-semibold text-indigo-600">1. Pengantar Sistem Informasi</h4>
+          <p class="text-sm text-slate-500 mt-2">Peran, jenis, dan contoh penerapan SI di organisasi.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-arch">
+          <h4 class="font-semibold text-sky-600">2. Arsitektur Modern (Cloud, API)</h4>
+          <p class="text-sm text-slate-500 mt-2">Cloud, API, microservices, dan database terdistribusi.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-security">
+          <h4 class="font-semibold text-emerald-600">3. Keamanan Informasi (CIA)</h4>
+          <p class="text-sm text-slate-500 mt-2">Confidentiality, Integrity, Availability dan teknik dasar.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-ethics">
+          <h4 class="font-semibold text-amber-600">4. Etika Digital & Privasi</h4>
+          <p class="text-sm text-slate-500 mt-2">Perlindungan data pribadi dan prinsip etika.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-threats">
+          <h4 class="font-semibold text-rose-600">5. Ancaman Siber Modern</h4>
+          <p class="text-sm text-slate-500 mt-2">Ransomware, DDoS, MITM, spyware, dsb.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-respond">
+          <h4 class="font-semibold text-purple-600">6. Pencegahan & Respons Insiden</h4>
+          <p class="text-sm text-slate-500 mt-2">Tahapan respons insiden dan recovery.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-db">
+          <h4 class="font-semibold text-indigo-500">7. Keamanan Database</h4>
+          <p class="text-sm text-slate-500 mt-2">Prinsip hardening database dan backup.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-network">
+          <h4 class="font-semibold text-sky-500">8. Keamanan Jaringan</h4>
+          <p class="text-sm text-slate-500 mt-2">Firewall, segmentation, VPN, dan monitoring.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-cloud">
+          <h4 class="font-semibold text-emerald-500">9. Cloud Security</h4>
+          <p class="text-sm text-slate-500 mt-2">Shared responsibility, IAM, enkripsi.</p>
+        </article>
+
+        <article class="bg-white rounded-xl shadow hover:shadow-lg p-4 cursor-pointer transform transition hover:-translate-y-1" data-module="m-forensics">
+          <h4 class="font-semibold text-rose-500">10. Forensik Digital & Audit</h4>
+          <p class="text-sm text-slate-500 mt-2">Pengumpulan bukti digital, chain of custody.</p>
+        </article>
+      </div>
+
+      <!-- Modul detail area -->
+      <div id="moduleDetail" class="mt-6"></div>
+    </section>
+
+    <!-- Simulasi -->
+    <section id="simulasi" class="mb-8">
+      <h3 class="text-xl font-bold mb-3">🧪 Simulasi Interaktif</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded-xl shadow">
+          <h4 class="font-semibold">Simulasi Phishing</h4>
+          <p class="text-sm text-slate-500 mt-2">Uji kemampuan mendeteksi URL/email palsu.</p>
+          <input id="phishInput" class="mt-3 p-2 border rounded w-full" placeholder="Tempel URL atau email di sini">
+          <button id="phishCheckBtn" class="mt-3 w-full bg-indigo-600 text-white rounded py-2 font-semibold">Periksa</button>
+          <p id="phishResult" class="mt-3 font-semibold"></p>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl shadow">
+          <h4 class="font-semibold">Simulasi Malware</h4>
+          <p class="text-sm text-slate-500 mt-2">Simulasi efek file berbahaya pada sistem.</p>
+          <button id="malwareBtn" class="mt-3 w-full bg-rose-500 text-white rounded py-2 font-semibold">Jalankan Simulasi</button>
+          <p id="malwareResult" class="mt-3 font-semibold"></p>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl shadow">
+          <h4 class="font-semibold">Simulasi Pengujian Password</h4>
+          <p class="text-sm text-slate-500 mt-2">Coba kombinasi password dan lihat seberapa cepat ditebak.</p>
+          <input id="testPassInput" class="mt-3 p-2 border rounded w-full" placeholder="Masukkan contoh password">
+          <button id="testPassBtn" class="mt-3 w-full bg-emerald-600 text-white rounded py-2 font-semibold">Uji Password</button>
+          <p id="passSpeedResult" class="mt-3 font-semibold"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Password Strength -->
+    <section id="password" class="mb-8">
+      <h3 class="text-xl font-bold mb-3">🔐 Pembuat & Pengecek Password Kuat</h3>
+      <div class="bg-white p-4 rounded-xl shadow grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-sm font-medium">Cek Kekuatan Password</label>
+          <input id="pwdCheck" class="mt-2 p-2 border rounded w-full" placeholder="Ketik password...">
+          <div class="mt-3 h-3 bg-slate-100 rounded overflow-hidden">
+            <div id="pwdBar" class="h-3 bg-red-500 w-0 transition-all"></div>
+          </div>
+          <p id="pwdLabel" class="mt-2 font-semibold"></p>
+          <button id="suggestBtn" class="mt-3 bg-indigo-600 text-white px-4 py-2 rounded font-semibold">Buat Password Kuat</button>
+          <p id="suggested" class="mt-2 font-mono text-sm bg-slate-50 p-2 rounded"></p>
+        </div>
+
+        <div>
+          <label class="text-sm font-medium">Tips membuat password kuat</label>
+          <ul class="list-disc pl-5 mt-2 text-sm text-slate-600">
+            <li>Gunakan minimal 12 karakter.</li>
+            <li>Sertakan huruf besar, kecil, angka, dan simbol.</li>
+            <li>Hindari kata-kata umum dan data pribadi.</li>
+            <li>Gunakan password manager jika perlu.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz (single implementation like Quizizz) -->
+    <section id="quiz" class="mb-12">
+      <h3 class="text-xl font-bold mb-3">📝 Kuis Interaktif - 10 Soal</h3>
+      <div class="bg-white p-4 rounded-xl shadow">
+        <div id="quizArea"></div>
+        <div class="mt-4 flex gap-3">
+          <button id="prevBtn" class="px-4 py-2 bg-slate-100 rounded disabled:opacity-50" disabled>Prev</button>
+          <button id="nextBtn" class="px-4 py-2 bg-slate-100 rounded">Next</button>
+          <button id="submitBtn" class="ml-auto px-4 py-2 bg-indigo-600 text-white rounded">Kumpulkan Jawaban</button>
+        </div>
+        <div id="quizScore" class="mt-4 p-3 bg-amber-50 rounded hidden"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="text-center py-6 text-sm text-slate-500">
+    © Literasi SI • Dibuat untuk pembelajaran
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // Module content (detail panjang untuk setiap modul)
+      const modules = {
+        'm-intro': {
+          title: 'Pengantar Sistem Informasi',
+          html: `
+            <p class="text-sm text-slate-600">Sistem Informasi (SI) adalah kombinasi sumber daya manusia, perangkat keras, perangkat lunak, data, dan prosedur yang bekerja bersama untuk mengumpulkan, mengolah, menyimpan, dan menyebarkan informasi. SI mendukung operasi, manajemen, dan pengambilan keputusan organisasi.</p>
+            <p class="text-sm text-slate-600 mt-2">Contoh nyata: sistem kasir (POS) di toko retail, sistem informasi akademik di sekolah, dan sistem manajemen gudang. Dalam masing-masing contoh, SI membantu mempercepat proses, mengurangi kesalahan, dan menyediakan data untuk analisis.</p>
+            <h5 class="font-semibold mt-3">Latihan singkat</h5>
+            <ol class="list-decimal pl-5 text-sm text-slate-600">
+              <li>Sebutkan 2 contoh SI di lingkungan kampus atau sekolah.</li>
+              <li>Jelaskan satu manfaat SI bagi manajemen.</li>
+            </ol>
+          `
+        },
+        'm-arch': {
+          title: 'Arsitektur Sistem Informasi Modern',
+          html: `
+            <p class="text-sm text-slate-600">Arsitektur modern menggabungkan komponen berbasis cloud, API, microservices, dan database terdistribusi. Model ini meningkatkan skalabilitas, ketersediaan, dan kemudahan integrasi antar layanan.</p>
+            <p class="text-sm text-slate-600 mt-2">Contoh arsitektur: Client → CDN → Load Balancer → API Gateway → Microservices → Database (Primary/Replica). Setiap lapisan memiliki tanggung jawab jelas sehingga memudahkan pemeliharaan dan pengembangan.</p>
+            <h5 class="font-semibold mt-3">Contoh studi kasus</h5>
+            <p class="text-sm text-slate-600">Sebuah e-commerce menggunakan microservices untuk memisahkan layanan pembayaran, katalog, dan pengiriman. Jika layanan katalog down, layanan pembayaran tetap berjalan.</p>
+          `
+        },
+        'm-security': {
+          title: 'Keamanan Informasi (CIA)',
+          html: `
+            <p class="text-sm text-slate-600">Keamanan informasi berfokus pada tiga prinsip utama: Confidentiality (kerahasiaan), Integrity (integritas), dan Availability (ketersediaan). Teknik umum meliputi enkripsi, kontrol akses, logging, dan patching rutin.</p>
+            <p class="text-sm text-slate-600 mt-2">Implementasi praktis: enkripsi data sensitif di database, penggunaan HTTPS untuk komunikasi, dan role-based access control (RBAC) untuk meminimalkan hak akses.</p>
+            <h5 class="font-semibold mt-3">Latihan</h5>
+            <ul class="list-disc pl-5 text-sm text-slate-600">
+              <li>Jelaskan mengapa enkripsi penting saat menyimpan password.</li>
+              <li>Apa bedanya hashing dan enkripsi?</li>
+            </ul>
+          `
+        },
+        'm-ethics': {
+          title: 'Etika Digital & Privasi',
+          html: `
+            <p class="text-sm text-slate-600">Etika digital mengatur perilaku pengguna dan pengembang dalam menggunakan dan membangun teknologi. Privasi data menuntut transparansi dalam pengumpulan dan pemrosesan data pribadi.</p>
+            <p class="text-sm text-slate-600 mt-2">Prinsip penting: minimisasi data (hanya kumpulkan yang perlu), anonymization, dan kepatuhan terhadap regulasi (mis. GDPR, UU Perlindungan Data di negara masing-masing).</p>
+            <h5 class="font-semibold mt-3">Studi Kasus</h5>
+            <p class="text-sm text-slate-600">Sebuah aplikasi survei berkali-kali meminta data yang tidak relevan — diskusikan bagaimana seharusnya tim produk memperbaikinya.</p>
+          `
+        },
+        'm-threats': {
+          title: 'Ancaman Siber Modern',
+          html: `
+            <p class="text-sm text-slate-600">Ancaman modern termasuk ransomware (enkripsi data dan permintaan tebusan), DDoS (melumpuhkan layanan), MITM (menyadap komunikasi), spyware, dan advanced persistent threats (APT).</p>
+            <p class="text-sm text-slate-600 mt-2">Langkah mitigasi: backup berkala, network segmentation, IDS/IPS, dan pelatihan kesadaran keamanan bagi pengguna.</p>
+            <h5 class="font-semibold mt-3">Latihan</h5>
+            <p class="text-sm text-slate-600">Buat daftar checklist singkat yang harus dilakukan setelah terdeteksi ransomware di server.</p>
+          `
+        },
+        'm-respond': {
+          title: 'Pencegahan & Respons Insiden',
+          html: `
+            <p class="text-sm text-slate-600">Rencana respons insiden mencakup identifikasi, isolasi, eradikasi, pemulihan, dan post‑mortem. Peran tim harus jelas dan ada jalur komunikasi darurat.</p>
+            <p class="text-sm text-slate-600 mt-2">Contoh: jika ada kebocoran data, langkah awal adalah mengisolasi sistem, menilai skala kebocoran, memberi tahu pihak yang terkena (jika perlu), dan memperbaiki celah.</p>
+          `
+        },
+        'm-db': {
+          title: 'Keamanan Database',
+          html: `
+            <p class="text-sm text-slate-600">Database adalah sumber kebenaran — amankan dengan enkripsi-at-rest, enkripsi-in-transit, manajemen user yang ketat, monitoring query, dan backup yang terenkripsi.</p>
+            <p class="text-sm text-slate-600 mt-2">Praktik baik: least privilege, penggunaan stored procedures untuk mengurangi SQL injection, dan audit log untuk kegiatan akses data.</p>
+          `
+        },
+        'm-network': {
+          title: 'Keamanan Jaringan',
+          html: `
+            <p class="text-sm text-slate-600">Keamanan jaringan meliputi segmentasi, firewall, VPN, enkripsi lalu lintas (TLS), dan pemantauan lalu lintas untuk mendeteksi anomali.</p>
+            <p class="text-sm text-slate-600 mt-2">Kasus: penggunaan VLAN untuk memisahkan jaringan tamu dan jaringan internal serta menerapkan rule firewall yang ketat.</p>
+          `
+        },
+        'm-cloud': {
+          title: 'Cloud Security',
+          html: `
+            <p class="text-sm text-slate-600">Di cloud, model shared responsibility berarti provider bertanggung jawab pada infrastruktur, sedangkan pengguna bertanggung jawab pada konfigurasi layanan dan data. Gunakan IAM, enkripsi, dan logging yang baik.</p>
+            <p class="text-sm text-slate-600 mt-2">Pelajari praktik seperti least-privilege access, key management, dan penggunaan layanan monitoring cloud.</p>
+          `
+        },
+        'm-forensics': {
+          title: 'Forensik Digital & Audit',
+          html: `
+            <p class="text-sm text-slate-600">Forensik digital mencakup teknik mengumpulkan dan menganalisis bukti dari perangkat digital tanpa merusak bukti itu sendiri. Chain of custody harus terjaga untuk validitas hukum.</p>
+            <p class="text-sm text-slate-600 mt-2">Tool umum: FTK, Autopsy, dan penggunaan hashing untuk membuktikan integritas bukti.</p>
+          `
+        }
+      };
+
+      // Module open
+      const moduleCards = document.querySelectorAll('[data-module]');
+      const moduleDetail = document.getElementById('moduleDetail');
+      moduleCards.forEach(card=>{
+        card.addEventListener('click', ()=>{
+          const id = card.getAttribute('data-module');
+          const detail = modules[id];
+          if(!detail) return;
+          moduleDetail.innerHTML = `
+            <div class="bg-white p-6 rounded-xl shadow-lg mt-4 fade-in">
+              <h4 class="text-lg font-bold text-indigo-700">${detail.title}</h4>
+              <div class="mt-3">${detail.html}</div>
+              <button class="mt-4 px-3 py-2 bg-sky-50 text-sky-700 rounded" id="closeModuleBtn">Tutup</button>
+            </div>`;
+          document.getElementById('closeModuleBtn')?.addEventListener('click', ()=>{ moduleDetail.innerHTML=''; });
+          window.scrollTo({top: moduleDetail.offsetTop - 80, behavior:'smooth'});
+        });
+      });
+
+      // Phishing check
+      const phishInput = document.getElementById('phishInput');
+      const phishCheckBtn = document.getElementById('phishCheckBtn');
+      const phishResult = document.getElementById('phishResult');
+      if(phishCheckBtn){
+        phishCheckBtn.addEventListener('click', ()=>{
+          const input = phishInput.value.trim();
+          if(!input){ phishResult.innerText='Masukkan URL atau teks untuk diperiksa.'; phishResult.style.color='red'; return; }
+          const suspicious = [ 'login-', 'verify', 'secure', 'update-account', 'free-giveaway' ];
+          let score = 0;
+          if(!/^https:\/\//i.test(input)) score+=1;
+          suspicious.forEach(s=>{ if(input.toLowerCase().includes(s)) score+=1; });
+          const host = input.replace(/^https?:\/\//i,'').split('/')[0];
+          if(host && (host.split('-').length>2 || host.split('.').length>3)) score+=1;
+          if(score>=2){ phishResult.innerText='🔴 Mencurigakan — hindari mengklik atau memasukkan data.'; phishResult.style.color='crimson'; }
+          else if(score===1){ phishResult.innerText='🟠 Berhati-hati — kemungkinan palsu.'; phishResult.style.color='orange'; }
+          else { phishResult.innerText='🟢 Terlihat aman, namun selalu verifikasi URL resmi.'; phishResult.style.color='green'; }
+        });
+      }
+
+      // Malware simulation
+      const malwareBtn = document.getElementById('malwareBtn');
+      const malwareResult = document.getElementById('malwareResult');
+      if(malwareBtn){
+        malwareBtn.addEventListener('click', ()=>{
+          malwareResult.innerHTML = '🔔 Simulasi: File bernama invoice.exe diunduh dan memodifikasi file penting. <br>Solusi: jangan jalankan file dari sumber tak dikenal, gunakan antivirus, dan cek hash file.';
+        });
+      }
+
+      // Password check & suggestion
+      const pwdCheck = document.getElementById('pwdCheck');
+      const pwdBar = document.getElementById('pwdBar');
+      const pwdLabel = document.getElementById('pwdLabel');
+      const suggestBtn = document.getElementById('suggestBtn');
+      const suggested = document.getElementById('suggested');
+      if(pwdCheck){
+        pwdCheck.addEventListener('input', ()=>{
+          const v = pwdCheck.value;
+          let s = 0;
+          if(v.length>=12) s+=2; else if(v.length>=8) s+=1;
+          if(/[A-Z]/.test(v)) s+=1;
+          if(/[0-9]/.test(v)) s+=1;
+          if(/[^A-Za-z0-9]/.test(v)) s+=1;
+          const percent = Math.min(100, Math.round((s/6)*100));
+          pwdBar.style.width = percent + '%';
+          if(percent<30){ pwdBar.className='h-3 bg-red-500 w-full transition-all'; pwdLabel.innerText='Sangat Lemah'; }
+          else if(percent<60){ pwdBar.className='h-3 bg-orange-400 w-full transition-all'; pwdLabel.innerText='Cukup'; }
+          else { pwdBar.className='h-3 bg-emerald-500 w-full transition-all'; pwdLabel.innerText='Kuat'; }
+        });
+      }
+      if(suggestBtn){
+        suggestBtn.addEventListener('click', ()=>{
+          const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=';
+          let pass = '';
+          for(let i=0;i<14;i++) pass += chars[Math.floor(Math.random()*chars.length)];
+          suggested.innerText = pass;
+        });
+      }
+
+      // Test password speed
+      const testPassBtn = document.getElementById('testPassBtn');
+      const testPassInput = document.getElementById('testPassInput');
+      const passSpeedResult = document.getElementById('passSpeedResult');
+      if(testPassBtn){
+        testPassBtn.addEventListener('click', ()=>{
+          const p = (testPassInput && testPassInput.value) ? testPassInput.value : 'password123';
+          passSpeedResult.innerText = 'Menjalankan simulasi...';
+          setTimeout(()=>{
+            if(p.length<6) passSpeedResult.innerText = 'Cepat ditebak (kurang dari menit). Gunakan password lebih panjang.';
+            else if(p.length<10) passSpeedResult.innerText = 'Mungkin ditebak dalam beberapa jam-hari.';
+            else passSpeedResult.innerText = 'Cukup sulit untuk ditebak oleh brute force biasa.';
+          },800);
+        });
+      }
+
+      // Quiz data and UI
+      const quizQuestions = [
+        {q:'Sistem informasi bertujuan untuk?', opts:['Mengolah data menjadi informasi','Menghias tampilan komputer','Mempercepat hardware'], a:0},
+        {q:'Komponen SI yang mengelola SOP adalah?', opts:['Hardware','Data','Prosedur'], a:2},
+        {q:'Contoh ancaman keamanan adalah?', opts:['Cloud storage','Phishing','Dashboard'], a:1},
+        {q:'Phishing bertujuan untuk?', opts:['Mencuri data','Memperbaiki server','Mengoptimalkan jaringan'], a:0},
+        {q:'Data menjadi informasi setelah?', opts:['Diarsipkan','Dihapus','Diolah'], a:2},
+        {q:'Komponen manusia dalam SI mencakup?', opts:['CPU','Pengguna','Router'], a:1},
+        {q:'Yang bukan komponen SI adalah?', opts:['Software','Data','Makanan'], a:2},
+        {q:'Contoh software adalah?', opts:['Sistem Operasi','Monitor','Kabel'], a:0},
+        {q:'Tujuan keamanan informasi adalah?', opts:['Meningkatkan tampilan web','Melindungi data','Mempercepat RAM'], a:1},
+        {q:'Link mencurigakan biasanya…', opts:['Selalu resmi','Selalu aman','Mengandung URL tidak wajar'], a:2}
+      ];
+
+      let current = 0; const answers = Array(quizQuestions.length).fill(null);
+      const quizArea = document.getElementById('quizArea');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const submitBtn = document.getElementById('submitBtn');
+      const quizScore = document.getElementById('quizScore');
+
+      function renderQuestion(i){
+        const q = quizQuestions[i];
+        if(!quizArea) return;
+        quizArea.innerHTML = `
+          <div class="fade-in">
+            <p class="font-semibold text-lg">Soal ${i+1} dari ${quizQuestions.length}</p>
+            <p class="mt-2 mb-4">${q.q}</p>
+            <div class="grid gap-2">${q.opts.map((o,idx)=>`
+              <label class="p-3 border rounded-lg cursor-pointer hover:bg-slate-50 flex items-center gap-3">
+                <input type="radio" name="opt" value="${idx}" ${answers[i]===idx? 'checked':''}> <span>${o}</span>
+              </label>`).join('')}
+            </div>
+          </div>`;
+        if(prevBtn) prevBtn.disabled = (i===0);
+        if(nextBtn) nextBtn.disabled = (i===quizQuestions.length-1);
+      }
+
+      function saveAnswer(){
+        if(!quizArea) return;
+        const sel = document.querySelector('input[name="opt"]:checked');
+        if(sel) answers[current] = Number(sel.value);
+      }
+
+      if(prevBtn) prevBtn.addEventListener('click', ()=>{ saveAnswer(); if(current>0) current--; renderQuestion(current); });
+      if(nextBtn) nextBtn.addEventListener('click', ()=>{ saveAnswer(); if(current<quizQuestions.length-1) current++; renderQuestion(current); });
+
+      if(submitBtn) submitBtn.addEventListener('click', ()=>{
+        saveAnswer();
+        const total = answers.reduce((acc, v, i)=> acc + ((v===quizQuestions[i].a)?1:0), 0);
+        if(quizScore) quizScore.classList.remove('hidden');
+        if(quizScore) quizScore.innerHTML = `Skor akhir: <span class="text-2xl font-extrabold text-amber-700">${total} / ${quizQuestions.length}</span><br><span class="text-sm text-slate-600">${total>=8? 'Luar biasa!':'Coba lagi untuk memperbaiki hasil.'}</span>`;
+        const progress = Math.round((total/quizQuestions.length)*100);
+        const progressBar = document.getElementById('progressBar');
+        if(progressBar) progressBar.style.width = progress + '%';
+      });
+
+      // initial render
+      renderQuestion(0);
+
+      // mobile menu fallback
+      const menuBtn = document.getElementById('menuBtn');
+      if(menuBtn) menuBtn.addEventListener('click', ()=>{
+        alert('Gunakan tautan navigasi di dalam halaman (scroll) — fitur menu mobile sedang disederhanakan.');
+      });
+
+    }); // DOMContentLoaded
+  </script>
+
+</body>
+</html>

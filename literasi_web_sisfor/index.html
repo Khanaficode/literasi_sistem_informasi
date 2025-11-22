@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Literasi Sistem Informasi</title>
+  <title>Literasi Sistem Informasi - Interaktif (Tailwind)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .fade-in { animation: fadeIn 400ms ease both; }
@@ -26,7 +26,7 @@
         <a href="#modul" class="px-3 py-2 rounded-md hover:bg-slate-100">Modul</a>
         <a href="#simulasi" class="px-3 py-2 rounded-md hover:bg-slate-100">Simulasi</a>
         <a href="#password" class="px-3 py-2 rounded-md hover:bg-slate-100">Password</a>
-        <a href="#quiz" class="px-3 py-2 rounded-md hover:bg-slate-100">Quiz</a>
+        
       </nav>
 
       <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100">
@@ -181,18 +181,7 @@
     </section>
 
     <!-- Quiz (single implementation like Quizizz) -->
-    <section id="quiz" class="mb-12">
-      <h3 class="text-xl font-bold mb-3">📝 Kuis Interaktif - 10 Soal</h3>
-      <div class="bg-white p-4 rounded-xl shadow">
-        <div id="quizArea"></div>
-        <div class="mt-4 flex gap-3">
-          <button id="prevBtn" class="px-4 py-2 bg-slate-100 rounded disabled:opacity-50" disabled>Prev</button>
-          <button id="nextBtn" class="px-4 py-2 bg-slate-100 rounded">Next</button>
-          <button id="submitBtn" class="ml-auto px-4 py-2 bg-indigo-600 text-white rounded">Kumpulkan Jawaban</button>
-        </div>
-        <div id="quizScore" class="mt-4 p-3 bg-amber-50 rounded hidden"></div>
-      </div>
-    </section>
+    
 
   </main>
 
@@ -386,65 +375,7 @@
         });
       }
 
-      // Quiz data and UI
-      const quizQuestions = [
-        {q:'Sistem informasi bertujuan untuk?', opts:['Mengolah data menjadi informasi','Menghias tampilan komputer','Mempercepat hardware'], a:0},
-        {q:'Komponen SI yang mengelola SOP adalah?', opts:['Hardware','Data','Prosedur'], a:2},
-        {q:'Contoh ancaman keamanan adalah?', opts:['Cloud storage','Phishing','Dashboard'], a:1},
-        {q:'Phishing bertujuan untuk?', opts:['Mencuri data','Memperbaiki server','Mengoptimalkan jaringan'], a:0},
-        {q:'Data menjadi informasi setelah?', opts:['Diarsipkan','Dihapus','Diolah'], a:2},
-        {q:'Komponen manusia dalam SI mencakup?', opts:['CPU','Pengguna','Router'], a:1},
-        {q:'Yang bukan komponen SI adalah?', opts:['Software','Data','Makanan'], a:2},
-        {q:'Contoh software adalah?', opts:['Sistem Operasi','Monitor','Kabel'], a:0},
-        {q:'Tujuan keamanan informasi adalah?', opts:['Meningkatkan tampilan web','Melindungi data','Mempercepat RAM'], a:1},
-        {q:'Link mencurigakan biasanya…', opts:['Selalu resmi','Selalu aman','Mengandung URL tidak wajar'], a:2}
-      ];
-
-      let current = 0; const answers = Array(quizQuestions.length).fill(null);
-      const quizArea = document.getElementById('quizArea');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const submitBtn = document.getElementById('submitBtn');
-      const quizScore = document.getElementById('quizScore');
-
-      function renderQuestion(i){
-        const q = quizQuestions[i];
-        if(!quizArea) return;
-        quizArea.innerHTML = `
-          <div class="fade-in">
-            <p class="font-semibold text-lg">Soal ${i+1} dari ${quizQuestions.length}</p>
-            <p class="mt-2 mb-4">${q.q}</p>
-            <div class="grid gap-2">${q.opts.map((o,idx)=>`
-              <label class="p-3 border rounded-lg cursor-pointer hover:bg-slate-50 flex items-center gap-3">
-                <input type="radio" name="opt" value="${idx}" ${answers[i]===idx? 'checked':''}> <span>${o}</span>
-              </label>`).join('')}
-            </div>
-          </div>`;
-        if(prevBtn) prevBtn.disabled = (i===0);
-        if(nextBtn) nextBtn.disabled = (i===quizQuestions.length-1);
-      }
-
-      function saveAnswer(){
-        if(!quizArea) return;
-        const sel = document.querySelector('input[name="opt"]:checked');
-        if(sel) answers[current] = Number(sel.value);
-      }
-
-      if(prevBtn) prevBtn.addEventListener('click', ()=>{ saveAnswer(); if(current>0) current--; renderQuestion(current); });
-      if(nextBtn) nextBtn.addEventListener('click', ()=>{ saveAnswer(); if(current<quizQuestions.length-1) current++; renderQuestion(current); });
-
-      if(submitBtn) submitBtn.addEventListener('click', ()=>{
-        saveAnswer();
-        const total = answers.reduce((acc, v, i)=> acc + ((v===quizQuestions[i].a)?1:0), 0);
-        if(quizScore) quizScore.classList.remove('hidden');
-        if(quizScore) quizScore.innerHTML = `Skor akhir: <span class="text-2xl font-extrabold text-amber-700">${total} / ${quizQuestions.length}</span><br><span class="text-sm text-slate-600">${total>=8? 'Luar biasa!':'Coba lagi untuk memperbaiki hasil.'}</span>`;
-        const progress = Math.round((total/quizQuestions.length)*100);
-        const progressBar = document.getElementById('progressBar');
-        if(progressBar) progressBar.style.width = progress + '%';
-      });
-
-      // initial render
-      renderQuestion(0);
+      // Quiz removed per user request.
 
       // mobile menu fallback
       const menuBtn = document.getElementById('menuBtn');
@@ -457,3 +388,4 @@
 
 </body>
 </html>
+
